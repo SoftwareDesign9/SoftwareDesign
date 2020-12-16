@@ -1,6 +1,6 @@
 # SoftwareDesign
 
-git clone 이나 리눅스 환경에 다운받으신 후 npm start로 시작합니다.
+git clone 이나 (code -> download ZIP)으로 리눅스 환경에 다운받으신 후 npm start로 시작합니다.
 (실행이 안되면 sudo apt-get install npm해주세요)
 
 npm start로 서버가 켜진 후에
