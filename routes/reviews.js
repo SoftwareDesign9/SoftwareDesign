@@ -51,6 +51,11 @@ router.get('/detail', function(req, res, next) {
   res.render('restaurantInfo2');
 })
 
+router.get('/detail3', function(req, res, next) {
+    console.log('show info3');
+    res.render('restaurantInfo3');
+})
+
 router.get('/write', function(req, res, next) {
   res.render('writeArticle');
 });
