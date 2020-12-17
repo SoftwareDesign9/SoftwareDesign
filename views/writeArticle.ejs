@@ -2,26 +2,176 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <title>리뷰작성 - 대학맛집보고서</title>
+        
+        <style>
+        svg:not (:root ).svg-inline--fa {
+            overflow: visible
+        }
+
+        .svg-inline--fa {
+            display: inline-block;
+            font-size: inherit;
+            height: 1em;
+            overflow: visible;
+            vertical-align: -.125em
+        }
+
+        .svg-inline--fa.fa-lg {
+            vertical-align: -.225em
+        }
+
+        .svg-inline--fa.fa-w-16 {
+            width: 1em
+        }
+
+        header {
+            width: 100%;
+            height: 78px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px #CACFDE;
+            background: #FFFFFF;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        header .contents {
+            display: flex;
+            flex-direction: row;
+        }
+
+        header .contents a {
+            display: block;
+            height: 37px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4e55;
+            padding-top: 5px;
+            margin-right: 17px;
+        }
+
+        header .search_bar {
+            height: 44px;
+            width: 513px;
+            border: 1px solid #ff4e55;
+            border-radius: 4px;
+            padding-left: 15px;
+            padding-right: 8px;
+            position: relative;
+            margin-right: 22px;
+        }
+
+        #search_text {
+            border: none;
+            width: 440px;
+            height: 38px;
+            font-size: 18px;
+        }
+
+        header .contents .search_bar .fa-search {
+            font-size: 24px;
+            position: absolute;
+            right: 15px;
+            top: 8px;
+            color: #ff4e55;
+        }
+
+        #write_review {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #write_review h1 {
+            font-size: 34px;
+            margin-top: 120px;
+            margin-bottom: 30px;
+        }
+
+        #write_review h1::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 2px;
+            background: #ff4e55;
+            margin: 40px auto;
+        }
+
+        #input {
+            padding: 0 50px 50px 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        th {
+            padding-right: 20px;
+            text-align: right;
+        }
+
+        td {
+            width: 80%;
+        }
+
+        tr {
+            width: 20%;
+        }
+        ::selection {
+          background: #000;
+          color: #fff;
+        }
+        </style>
     </head>
     <body>
-        <h1>Write Article</h1>
-        <form name='write' method='POST' action='/reviews/write'>
-            <table width=100%>
-                <tr>
-                    <th>title</th>
-                    <td><input type='text' name='title'></td>
-                </tr>
-                <tr>
-                    <th>author</th>
-                    <td><input type='text' name='author'></td>
-                </tr>
-                <tr>
-                    <th>article</th>
-                    <td><input type='text' name='article' rows='10'></td>
-                </tr>
+        <header>
+            <div class="contents">
+                <a href="#">대학맛집보고서</a>
+                <div class="search_bar">
+                    <input id="search_text" type="text" autocomplete="off"
+                        placeholder="위치, 상호명, 음식 이름으로 검색해보세요."> <a href="#"><svg
+                            class="svg-inline--fa fa-search fa-w-16" aria-hidden="true"
+                            data-prefix="fas" data-icon="search" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            data-fa-i2svg="">
+                            <path fill="currentColor"
+                                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+                        <!-- <i class="fas fa-search"></i> --></a>
+                </div>
+            </div>
+        </header>
+        <section id="write_review">
+            <h1>리뷰 작성</h1>
+            <div id="input">
+                <form name='write' method='POST' action='/reviews/write'>
+                <table width=100%>
+                    <tr>
+                        <th>title</th>
+                        <td><input type='text' name='title'></td>
+                    </tr>
+                    <tr>
+                        <th>author</th>
+                        <td><input type='text' name='author'></td>
+                    </tr>
+                    <tr>
+                        <th>review</th>
+                        <td><textarea type='text' name='article' rows='10' placeholder="리뷰를 작성해주세요" style="width: 80%;"></textarea></td>
+                    </tr>
             </table>
             <p>
                 <input type='submit' value="글 쓰기">
         </form>
+        </div>
+        </section>
     </body>
 </html>
