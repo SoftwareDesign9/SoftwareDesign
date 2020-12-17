@@ -40,21 +40,25 @@ router.post('/login_process', function(req, res, next) {
   console.log(id);
   var password = req.body.pw;
   console.log(password);
-  var sql = 'SELECT * FROM user WHERE id=?';
+  var arr = [id, password];
+  var sql = 'SELECT * FROM user WHERE u_id=? AND u_passwd=?';
   console.log(sql);
-  if(id == 'tester1' && password === 'passwd') {
-    console.log('success');
-    req.session.isLogined = true;
-    req.session.save();
-    res.redirect('/reviews');
-  }
-  else
-  {
-    console.log(failed);
-    req.session.isLogined = false;
-    req.session.save();
-    res.redirect('/login');
-  }
+  var query=connection.query(sql, arr, function(err, data) {
+    console.log(data);
+    if(data.length != 0) {
+      console.log('success');
+      req.session.isLogined = true;
+      req.session.save();
+      res.redirect('/');
+    }
+    else
+    {
+      console.log('failed');
+      req.session.isLogined = false;
+      req.session.save();
+      res.redirect('/login');
+    }
+  })
 });
 
 router.get('/signup', function(req, res, next) {

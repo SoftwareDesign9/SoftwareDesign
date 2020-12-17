@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>��Ž�� - ���и���������</title>
+<meta charset="UTF-8">
+<title>면탐정 - 대학맛집보고서</title>
 <style type="text/css">
-/*
 svg:not (:root ).svg-inline--fa {
 	overflow: visible
 }
-*/
+
 .svg-inline--fa {
 	display: inline-block;
 	font-size: inherit;
@@ -332,7 +331,7 @@ svg:not (:root ).svg-inline--fa {
 	-webkit-animation: fa-spin 1s infinite steps(8);
 	animation: fa-spin 1s infinite steps(8)
 }
-/*
+
 @
 -webkit-keyframes fa-spin { 0%{
 	-webkit-transform: rotate(0);
@@ -377,7 +376,6 @@ transform
 
 }
 }
-*/
 .fa-rotate-90 {
 	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg)
@@ -463,18 +461,149 @@ transform
 	position: static;
 	width: auto
 }
+
+:root {
+    /* color */
+    --main-color-pink: #FF4E55;
+    --color-light-gray: #CACFD2;
+    --color-background-gray: #f7f9fa;
+    --main-color-black: #000000;
+    --main-color-white: #ffffff;
+    --main-color-red: #F92929;
+    --main-color-dark-gray: #808B96;
+    --color-background-beige: #fff4eb;
+
+    /* font-size */
+    --font-size-medium: 34px;
+    --font-size-small: 30px;
+    /* margin */
+    --margin-title-bar: 40px;
+}
+
+a {
+	text-decoration: none;
+}
+::selection {
+  background: #000;
+  color: #fff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* header */
+
+header {
+    width: 100%;
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px var(--color-light-gray);
+    background: var(--main-color-white);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+header .contents {
+    display: flex;
+    flex-direction: row;
+}
+
+header .contents a {
+    display: block;
+    height: 37px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--main-color-pink);
+    padding-top: 5px;
+    margin-right: 17px;
+}
+
+header .search_bar {
+    height: 44px;
+    width: 513px;
+    border: 1px solid var(--main-color-pink);
+    border-radius: 4px;
+    padding-left: 15px;
+    padding-right: 8px;
+    position: relative;
+    margin-right: 22px;
+}
+
+#search_text {
+    border: none;
+    width: 440px;
+    height: 38px;
+    font-size: 18px;
+}
+
+
+header .contents .search_bar .fa-search {
+    font-size: 24px;
+    position: absolute;
+    right: 15px; top: 8px;
+    color: var(--main-color-pink);
+}
+
+
+.details_placeinfo {
+    position: relative;
+    padding: 25px 79px 40px;
+}
+.cont_menu {
+    padding: 29px 79px 44px;
+    margin-top: 10px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+}
+.cont_findway {
+    padding: 29px 79px 47px;
+    margin-top: 10px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+}
+
+.findway_map, .view_map {
+    position: relative;
+    width: 638px;
+    height: 258px;
+}
+.findway_map {
+    overflow: hidden;
+    top: 1px;
+    margin-top: 19px;
+}
+.cont_menu .nophoto_type .info_menu {
+    overflow: hidden;
+    float: none;
+}
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+.container{
+    padding: 29px 79px 47px;
+    margin-top: 10px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+}
+.material-icons{
+	color: var(--main-color-pink);
+}
 </style>
 
-<link href="css/restaurantInfo2.css" rel="stylesheet" type="text/css">
+<!--<link href="css/restaurantInfo2.css" rel="stylesheet" type="text/css">-->
 
 </head>
 <body>
 	<header>
 		<div class="contents">
-			<a href="index.html">���и���������</a>
+			<a href="index.html">대학맛집보고서</a>
 			<div class="search_bar">
 				<input id="search_text" type="text" autocomplete="off"
-					placeholder="��ġ, ��ȣ��, ���� �̸����� �˻��غ�����."> <a href="#"><svg
+					placeholder="위치, 상호명, 음식 이름으로 검색해보세요."> <a href="#"><svg
 						class="svg-inline--fa fa-search fa-w-16" aria-hidden="true"
 						data-prefix="fas" data-icon="search" role="img"
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -492,13 +621,13 @@ transform
 		<div
 			style="padding-top: 50vw; padding-bottom: 15px; text-align: center; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9) 95%);">
 			<span
-				style="font-size: 7.5vw; font-weight: bold; color: #fff; text-shadow: 1px 1px 1px black;">��Ž��</span><br>
+				style="font-size: 7.5vw; font-weight: bold; color: #fff; text-shadow: 1px 1px 1px black;">면탐정</span><br>
 			<p style="padding-top: 2px;">
-				<span style="font-size: 14px; color: #eee; letter-spacing: 0px;">��
-					<b>23</b>�� (<b>4.17</b>)
+				<span style="font-size: 14px; color: #eee; letter-spacing: 0px;">평가
+					<b>23</b>건 (<b>4.17</b>)
 				</span> <span style="color: #bbb;">|</span> <span
-					style="font-size: 14px; color: #eee; letter-spacing: 0px;">�湮��
-					<b>7551</b>��
+					style="font-size: 14px; color: #eee; letter-spacing: 0px;">방문자
+					<b>7551</b>명
 				</span>
 			</p>
 
@@ -513,7 +642,7 @@ transform
 								style="margin-right: 5px; display: inline; cursor: pointer; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
 								<span
 									style="font-size: 14px; padding: 4px 8px; border: 1px solid #fff; color: #fff; border-radius: 8px;"><i
-									class="material-icons" style="color: #fff; font-size: 16px;">���ƿ�</i>
+									class="material-icons" style="color: #fff; font-size: 16px;">좋아요</i>
 									<span style="color: #fff; font-weight: 800;">27</span></span>
 							</div>
 
@@ -521,7 +650,7 @@ transform
 								style="display: inline; cursor: pointer; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
 								<span
 									style="font-size: 14px; padding: 4px 8px; border: 1px solid #fff; color: #fff; border-radius: 8px;">
-									���侲��
+									리뷰쓰기
 								</span>
 							</div>
 
@@ -539,27 +668,27 @@ transform
 	</div>
 
 	<div data-viewid="basicInfo" data-root="" class="details_placeinfo">
-		<h2 class="tit_subject">������</h2>
+		<h2 class="tit_subject">상세정보</h2>
 		<div class="placeinfo_default">
 			<h4 class="tit_detail">
-				<span class="ico_comm ico_address">��ġ</span>
+				<span class="ico_comm ico_address">위치</span>
 			</h4>
 			<div class="location_detail">
-				<span class="txt_address">�뱸 �ϱ� ���з�15�� 15 (��)41544</span> <span
-					class="txt_addrnum">����<span class="bg_bar"></span>��ݵ�
+				<span class="txt_address">대구 북구 대학로15길 15 (우)41544</span> <span
+					class="txt_addrnum">지번<span class="bg_bar"></span>산격동
 					1397-27
 				</span>
 			</div>
 		</div>
 		<div class="placeinfo_default placeinfo_contact">
 			<h4 class="tit_detail">
-				<span class="ico_comm ico_contact">����ó</span>
+				<span class="ico_comm ico_contact">연락처</span>
 			</h4>
 			<div class="location_detail ">
-				<!-- btn_more Ŭ�� ���� �� open_on �߰� -->
+				<!-- btn_more 클릭 했을 때 open_on 추가 -->
 				<div class="location_present">
 					<span class="num_contact"><span class="txt_contact">053-215-8386</span><span
-						class="color_g"> ��ǥ��ȣ</span></span>
+						class="color_g"> 대표번호</span></span>
 
 				</div>
 			</div>
@@ -569,7 +698,7 @@ transform
 	<div data-viewid="findway" data-root="" class="cont_findway">
 
 		<div class="findway_map">
-			<h2 class="screen_out">���� ����</h2>
+			<h2 class="screen_out">지도 보기</h2>
 			<div class="view_map" id="map"
 				style="overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/2x/bg_tile.png&quot;);">
 				<div
@@ -685,14 +814,14 @@ transform
 						<div
 							style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;"></div>
 						<div
-							style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, ����, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">100m</div>
+							style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">100m</div>
 					</div>
 					<div style="margin: 0px 4px; float: right;">
 						<a target="_blank" href="http://map.kakao.com/"
-							title="Kakao ������ ���÷��� Ŭ���ϼ���."
+							title="Kakao 지도로 보시려면 클릭하세요."
 							style="float: left; width: 32px; height: 10px;"><img
 							src="https://t1.daumcdn.net/mapjsapi/images/2x/m_bi_b.png"
-							alt="Kakao ������ �̵�"
+							alt="Kakao 지도로 이동"
 							style="float: left; width: 32px; height: 10px; border: none;"></a>
 						<div
 							style="font: 11px/11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div>
@@ -701,8 +830,8 @@ transform
 				<div
 					style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"></div>
 			</div>
-			<!-- ���� ���� �Դϴ�. -->
-			<strong class="screen_out">���� ���� �� �޴�</strong>
+			<!-- 지도 영역 입니다. -->
+			<strong class="screen_out">지도 보기 탭 메뉴</strong>
 			<ul class="tab_map">
 
 
@@ -715,49 +844,49 @@ transform
 	</div>
 	<div data-viewid="menuInfo" data-root="" class="cont_menu">
 		<div class="particular_head">
-			<h2 class="tit_subject">�޴�</h2>
+			<h2 class="tit_subject">메뉴</h2>
 
 		</div>
 
-		<strong class="screen_out">�޴� ���</strong>
+		<strong class="screen_out">메뉴 목록</strong>
 		<ul class="list_menu" data-maxpage="1">
 			<li class="nophoto_type menu_fst" data-page="1">
-				<!-- �̹����� �ִ� ��� -->
+				<!-- 이미지가 있는 경우 -->
 				<div class="info_menu">
-					<span class="loss_word">����«��</span>
-					<em class="price_menu"><span class="screen_out">����: </span>5,500</em>
+					<span class="loss_word">빨간짬뽕</span>
+					<em class="price_menu"><span class="screen_out">가격: </span>5,500</em>
 
 				</div>
 			</li>
 			<li class="nophoto_type" data-page="1">
-				<!-- �̹����� �ִ� ��� -->
+				<!-- 이미지가 있는 경우 -->
 				<div class="info_menu">
-					<span class="loss_word">����«��</span>
-					<em class="price_menu"><span class="screen_out">����: </span>6,000</em>
+					<span class="loss_word">맑은짬뽕</span>
+					<em class="price_menu"><span class="screen_out">가격: </span>6,000</em>
 
 				</div>
 			</li>
 			<li class="nophoto_type" data-page="1">
-				<!-- �̹����� �ִ� ��� -->
+				<!-- 이미지가 있는 경우 -->
 				<div class="info_menu">
-					<span class="loss_word">��ũ«��</span>
-					<em class="price_menu"><span class="screen_out">����: </span>6,500</em>
+					<span class="loss_word">핑크짬뽕</span>
+					<em class="price_menu"><span class="screen_out">가격: </span>6,500</em>
 
 				</div>
 			</li>
 			<li class="nophoto_type" data-page="1">
-				<!-- �̹����� �ִ� ��� -->
+				<!-- 이미지가 있는 경우 -->
 				<div class="info_menu">
-					<span class="loss_word">������«��</span>
-					<em class="price_menu"><span class="screen_out">����: </span>7,000</em>
+					<span class="loss_word">샐러드짬뽕</span>
+					<em class="price_menu"><span class="screen_out">가격: </span>7,000</em>
 
 				</div>
 			</li>
 			<li class="nophoto_type opened_last" data-page="1">
-				<!-- �̹����� �ִ� ��� -->
+				<!-- 이미지가 있는 경우 -->
 				<div class="info_menu">
-					<span class="loss_word">ũ��������</span>
-					<em class="price_menu"><span class="screen_out">����: </span>7,500</em>
+					<span class="loss_word">크림리조또</span>
+					<em class="price_menu"><span class="screen_out">가격: </span>7,500</em>
 
 				</div>
 			</li>
@@ -767,7 +896,7 @@ transform
 <div class="container">
 <div class="tabs" style="height:42px;margin-top:0px;">
 	<div style="border-left:0 !important;" class="tab-link current" data-tab="tab-1">
-		<h2>����</h2>
+		<h2>리뷰</h2>
 		</div>
 			
 		
@@ -779,8 +908,8 @@ transform
 		
 	
 	<div style="vertical-align:middle;padding-left:15px;padding-top:15px;font-size:14px;padding-bottom:10px;">
-<a href="#"><span style="color:#ff4e55;font-weight:bold;">�ֽ�</span></a> <span style="font-size:14px;color:#eee;">|</span> 
-<a href="#"><span style="color:#ccc;">�α�</span></a> <span style="font-size:14px;color:#eee;">|</span> 
+<a href="#"><span style="color:#ff4e55;font-weight:bold;">최신</span></a> <span style="font-size:14px;color:#eee;">|</span> 
+<a href="#"><span style="color:#ccc;">인기</span></a> <span style="font-size:14px;color:#eee;">|</span> 
 </div>
 
 
@@ -814,7 +943,7 @@ transform
 <div onclick="event.cancelBubble = true;">
 
 
-<!--	 <div id="popUp27523" border="0" style="margin-right: 4px; cursor: pointer; float: left; display: inline-block; width: 80px; height: 80px; -webkit-tap-highlight-color: transparent; background-size: cover; background-repeat: no-repeat; margin-bottom: 4px; border-radius: 0px; background-image: url(https://cdn.pixabay.com/photo/2016/09/07/10/19/food-1651290_1280.jpg);"></div>-->
+	 <div id="popUp27523" border="0" style="margin-right: 4px; cursor: pointer; float: left; display: inline-block; width: 80px; height: 80px; -webkit-tap-highlight-color: transparent; background-size: cover; background-repeat: no-repeat; margin-bottom: 4px; border-radius: 0px; background-image: url(https://cdn.pixabay.com/photo/2016/09/07/10/19/food-1651290_1280.jpg);"></div>
 	 
 	 
 
@@ -825,9 +954,9 @@ transform
 
 <div style="width:100%;line-height:23px;clear:both;">
 <span style="letter-spacing:-0.5px;font-size:16px;color:#333;">
-  �����̿�,,,, ���� �ٵ� ���ּ���� �ְ� ����</span>
+  맛있이요,,,, 제발 다들 가주세요ㅜ 최고 맛집</span>
 
-<br><span style="font-size:12px;"><span style="color:#b5b5b5;letter-spacing:-0.5px;">9�ð� ��</span></span> <div style="width:48px;display:inline-block;" onclick="showPopup(27523);"><i class="material-icons" style="color:#ccc;font-size:12px;cursor:pointer;">
+<br><span style="font-size:12px;"><span style="color:#b5b5b5;letter-spacing:-0.5px;">9시간 전</span></span> <div style="width:48px;display:inline-block;" onclick="showPopup(27523);"><i class="material-icons" style="color:#ccc;font-size:12px;cursor:pointer;">
 </i></div></div>
 
 </td><td valign="top" align="left" style="padding-right:10px;" width="24">
@@ -835,7 +964,7 @@ transform
 
 <div id="div_chu_review27523" style="text-align:center;line-height:4px;cursor:pointer;-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);">
 <i class="material-icons" style="font-size:24px;font-style: normal;">
-��</i><br><br><span style="font-size:10px;color:#000;">5</span></div>
+♡</i><br><br><span style="font-size:10px;color:#000;">5</span></div>
 </td>
 </tr>
 
@@ -850,7 +979,7 @@ transform
 <div id="popLayer1444" style="width:100%;display:none;z-index:25;margin-bottom:5px;">
 
 
-<div id="popLayer_repl1444"><span style="color:#ccc;font-size:11px;">����� �ҷ����� ��...</span></div>
+<div id="popLayer_repl1444"><span style="color:#ccc;font-size:11px;">댓글을 불러오는 중...</span></div>
 
 
 

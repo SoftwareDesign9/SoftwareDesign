@@ -21,28 +21,30 @@ router.use(session({
 }));
 
 /* GET reviews listing. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
+  var college = req.body.c_name;
+  console.log(college);
+  var sql = "SELECT * FROM restaurant WHERE r_id IN (SELECT r_id FROM college_restaurant WHERE c_id=(SELECT c_id FROM college WHERE c_name=?))";
   //res.render('index');
-  var sql = 'SELECT title, article, likes review FROM review';
-  var query = connection.query(sql, function(err, data) {
+  var query1 = connection.query(sql, college, function(err, data) {
     if(err)
-      console.log(err);
+      console.log('error occured'+err);
     console.log(data);
-    res.render('index', {datas: data});
+    var sql = 'SELECT * FROM college_restaurant WHERE r_id';
+    //res.render('index', {data: data});
+    res.render('index');
   })
   //console.log(query);
 });
 
-router.post('/college', function(req, res, next) {
-  var college = req.body.college;
-  var sql = 'SELECT * FROM college WHERE c_name=?'
+/*router.post('/', function(req, res, next) {
   var query = connection.query(sql, college, function(err, data) {
     if(err)
       console.log(err);
     console.log(data);
     res.render('index')
   })
-})
+})*/
 
 router.get('/detail', function(req, res, next) {
   console.log('show info2');
