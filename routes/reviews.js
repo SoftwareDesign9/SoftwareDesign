@@ -22,7 +22,7 @@ router.use(session({
 
 /* GET reviews listing. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  //res.render('index');
   var sql = 'SELECT title, article, likes review FROM review';
   var query = connection.query(sql, function(err, data) {
     if(err)
@@ -32,6 +32,22 @@ router.get('/', function(req, res, next) {
   })
   //console.log(query);
 });
+
+router.post('/college', function(req, res, next) {
+  var college = req.body.college;
+  var sql = 'SELECT * FROM college WHERE c_name=?'
+  var query = connection.query(sql, college, function(err, data) {
+    if(err)
+      console.log(err);
+    console.log(data);
+    res.render('index')
+  })
+})
+
+router.get('/detail', function(req, res, next) {
+  console.log('show info2');
+  res.render('restaurantInfo2');
+})
 
 router.get('/write', function(req, res, next) {
   res.render('writeArticle');
