@@ -20,8 +20,6 @@ router.use(session({
   saveUninitialized: true
 }));
 
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("show index");

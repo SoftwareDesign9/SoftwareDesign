@@ -7,7 +7,8 @@ var option = {
   host: 'localhost',
   user: 'root',
   password: 'password',
-  database: 'swDesign'
+  database: 'swDesign',
+  multipleStatements: true
 };
 var connection = db.createConnection(option);
 var sessionStore = new mysqlStore(option);
@@ -24,17 +25,19 @@ router.use(session({
 router.post('/', function(req, res, next) {
   var college = req.body.c_name;
   console.log(college);
-  var sql = "SELECT * FROM restaurant WHERE r_id IN (SELECT r_id FROM college_restaurant WHERE c_id=(SELECT c_id FROM college WHERE c_name=?))";
+  var sql1 = "SELECT * FROM restaurant WHERE r_id IN (SELECT r_id FROM college_restaurant WHERE c_id=(SELECT c_id FROM college WHERE c_name=?));";
+  //var sql2 = "SELECT * FROM review WHERE r_id=( SELECT r_id FROM restaurant WHERE r_id IN (SELECT r_id FROM college_restaurant WHERE c_id=(SELECT c_id FROM college WHERE c_name=?)) LIMIT 1 ) LIMIT 1;";
+  //sqls += db.format(sql2, college);
+  
   //res.render('index');
-  var query1 = connection.query(sql, college, function(err, data) {
+  var query1 = connection.query(sql1, college, function(err, data) {
     if(err)
       console.log('error occured'+err);
     console.log(data);
-    var sql = 'SELECT * FROM college_restaurant WHERE r_id';
     //res.render('index', {data: data});
-    res.render('index');
+    res.render('index', {datas:data});
   })
-  //console.log(query);
+  console.log(query);
 });
 
 /*router.post('/', function(req, res, next) {
@@ -46,7 +49,7 @@ router.post('/', function(req, res, next) {
   })
 })*/
 
-router.get('/detail', function(req, res, next) {
+router.get('/detail/:r_id', function(req, res, next) {
   console.log('show info2');
   res.render('restaurantInfo2');
 })
